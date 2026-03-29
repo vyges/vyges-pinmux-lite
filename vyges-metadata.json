@@ -9,19 +9,36 @@
   "maturity": "development",
   "created": "2026-03-28T15:24:56Z",
   "updated": "2026-03-28T15:24:56Z",
-  "target": ["asic", "fpga"],
-  "design_type": ["digital"],
+  "target": [
+    "asic",
+    "fpga"
+  ],
+  "design_type": [
+    "digital"
+  ],
   "top_module": "pinmux_lite",
   "interfaces": [
     {
       "name": "clock",
       "type": "clock",
-      "signals": [{"name": "clk_i", "direction": "input", "width": 1}]
+      "signals": [
+        {
+          "name": "clk_i",
+          "direction": "input",
+          "width": 1
+        }
+      ]
     },
     {
       "name": "reset",
       "type": "reset",
-      "signals": [{"name": "rst_ni", "direction": "input", "width": 1}]
+      "signals": [
+        {
+          "name": "rst_ni",
+          "direction": "input",
+          "width": 1
+        }
+      ]
     },
     {
       "name": "tl_slave",
@@ -29,8 +46,18 @@
       "protocol": "tl-ul",
       "role": "device",
       "signals": [
-        {"name": "tl_i", "direction": "input", "width": 1, "type": "tl_h2d_t"},
-        {"name": "tl_o", "direction": "output", "width": 1, "type": "tl_d2h_t"}
+        {
+          "name": "tl_i",
+          "direction": "input",
+          "width": 1,
+          "type": "tl_h2d_t"
+        },
+        {
+          "name": "tl_o",
+          "direction": "output",
+          "width": 1,
+          "type": "tl_d2h_t"
+        }
       ]
     },
     {
@@ -38,9 +65,21 @@
       "type": "io",
       "description": "Function A peripheral interface (e.g. UART)",
       "signals": [
-        {"name": "func_a_out_i", "direction": "input", "width": 16},
-        {"name": "func_a_oe_i", "direction": "input", "width": 16},
-        {"name": "func_a_in_o", "direction": "output", "width": 16}
+        {
+          "name": "func_a_out_i",
+          "direction": "input",
+          "width": 16
+        },
+        {
+          "name": "func_a_oe_i",
+          "direction": "input",
+          "width": 16
+        },
+        {
+          "name": "func_a_in_o",
+          "direction": "output",
+          "width": 16
+        }
       ]
     },
     {
@@ -48,9 +87,21 @@
       "type": "io",
       "description": "Function B peripheral interface (e.g. SPI)",
       "signals": [
-        {"name": "func_b_out_i", "direction": "input", "width": 16},
-        {"name": "func_b_oe_i", "direction": "input", "width": 16},
-        {"name": "func_b_in_o", "direction": "output", "width": 16}
+        {
+          "name": "func_b_out_i",
+          "direction": "input",
+          "width": 16
+        },
+        {
+          "name": "func_b_oe_i",
+          "direction": "input",
+          "width": 16
+        },
+        {
+          "name": "func_b_in_o",
+          "direction": "output",
+          "width": 16
+        }
       ]
     },
     {
@@ -58,9 +109,21 @@
       "type": "io",
       "description": "Function C peripheral interface (reserved)",
       "signals": [
-        {"name": "func_c_out_i", "direction": "input", "width": 16},
-        {"name": "func_c_oe_i", "direction": "input", "width": 16},
-        {"name": "func_c_in_o", "direction": "output", "width": 16}
+        {
+          "name": "func_c_out_i",
+          "direction": "input",
+          "width": 16
+        },
+        {
+          "name": "func_c_oe_i",
+          "direction": "input",
+          "width": 16
+        },
+        {
+          "name": "func_c_in_o",
+          "direction": "output",
+          "width": 16
+        }
       ]
     },
     {
@@ -68,31 +131,120 @@
       "type": "io",
       "description": "External pad interface",
       "signals": [
-        {"name": "pad_out_o", "direction": "output", "width": 16},
-        {"name": "pad_oe_o", "direction": "output", "width": 16},
-        {"name": "pad_in_i", "direction": "input", "width": 16},
-        {"name": "pad_pull_en_o", "direction": "output", "width": 16},
-        {"name": "pad_pull_sel_o", "direction": "output", "width": 16}
+        {
+          "name": "pad_out_o",
+          "direction": "output",
+          "width": 16
+        },
+        {
+          "name": "pad_oe_o",
+          "direction": "output",
+          "width": 16
+        },
+        {
+          "name": "pad_in_i",
+          "direction": "input",
+          "width": 16
+        },
+        {
+          "name": "pad_pull_en_o",
+          "direction": "output",
+          "width": 16
+        },
+        {
+          "name": "pad_pull_sel_o",
+          "direction": "output",
+          "width": 16
+        }
       ]
     }
   ],
   "registers": [
-    {"name": "PIN_FUNC0", "offset": "0x00", "width": 32, "access": "RW", "description": "Function select for pins 0-15 (2 bits per pin)"},
-    {"name": "PIN_FUNC1", "offset": "0x04", "width": 32, "access": "RW", "description": "Function select for pins 16-31"},
-    {"name": "PIN_OE",    "offset": "0x10", "width": 32, "access": "RW", "description": "Output enable per pin"},
-    {"name": "PIN_OUT",   "offset": "0x14", "width": 32, "access": "RW", "description": "GPIO output value per pin"},
-    {"name": "PIN_IN",    "offset": "0x18", "width": 32, "access": "RO", "description": "Sampled input value per pin (2-FF sync)"},
-    {"name": "PIN_PULL",  "offset": "0x1C", "width": 32, "access": "RW", "description": "Pull enable per pin"},
-    {"name": "PIN_PULLSEL","offset": "0x20", "width": 32, "access": "RW", "description": "Pull direction (1=up, 0=down)"}
+    {
+      "name": "PIN_FUNC0",
+      "offset": "0x00",
+      "width": 32,
+      "access": "RW",
+      "description": "Function select for pins 0-15 (2 bits per pin)"
+    },
+    {
+      "name": "PIN_FUNC1",
+      "offset": "0x04",
+      "width": 32,
+      "access": "RW",
+      "description": "Function select for pins 16-31"
+    },
+    {
+      "name": "PIN_OE",
+      "offset": "0x10",
+      "width": 32,
+      "access": "RW",
+      "description": "Output enable per pin"
+    },
+    {
+      "name": "PIN_OUT",
+      "offset": "0x14",
+      "width": 32,
+      "access": "RW",
+      "description": "GPIO output value per pin"
+    },
+    {
+      "name": "PIN_IN",
+      "offset": "0x18",
+      "width": 32,
+      "access": "RO",
+      "description": "Sampled input value per pin (2-FF sync)"
+    },
+    {
+      "name": "PIN_PULL",
+      "offset": "0x1C",
+      "width": 32,
+      "access": "RW",
+      "description": "Pull enable per pin"
+    },
+    {
+      "name": "PIN_PULLSEL",
+      "offset": "0x20",
+      "width": 32,
+      "access": "RW",
+      "description": "Pull direction (1=up, 0=down)"
+    }
   ],
   "parameters": [
-    {"name": "NUM_PINS", "type": "int", "default": 16, "description": "Number of configurable IO pins"},
-    {"name": "NUM_FUNCS", "type": "int", "default": 4, "description": "Functions per pin (2-bit select)"}
+    {
+      "name": "NUM_PINS",
+      "type": "int",
+      "default": 16,
+      "description": "Number of configurable IO pins"
+    },
+    {
+      "name": "NUM_FUNCS",
+      "type": "int",
+      "default": 4,
+      "description": "Functions per pin (2-bit select)"
+    }
   ],
   "dependencies": [
-    {"name": "opentitan-tlul", "reason": "tlul_pkg types (tl_h2d_t, tl_d2h_t)"}
+    {
+      "name": "opentitan-tlul",
+      "reason": "tlul_pkg types (tl_h2d_t, tl_d2h_t)"
+    }
   ],
-  "trust": {"verification_level": "unverified", "tapeout_count": 0, "fpga_validated": false, "maintained": true},
-  "rtl_files": ["rtl/pinmux_lite.sv"],
-  "meta": {"template": {"generator": "manual (gold-standard 2026-03-28)"}}
+  "trust": {
+    "verification_level": "unverified",
+    "tapeout_count": 0,
+    "fpga_validated": false,
+    "maintained": true
+  },
+  "rtl_files": [
+    "rtl/pinmux_lite.sv"
+  ],
+  "meta": {
+    "template": {
+      "generator": "manual (gold-standard 2026-03-28)"
+    }
+  },
+  "branding": {
+    "display_name": "Pin Mux"
+  }
 }
