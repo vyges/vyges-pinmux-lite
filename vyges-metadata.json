@@ -1,6 +1,7 @@
 {
   "$schema": "https://vyges.com/schema/v1/vyges-metadata.schema.json",
   "name": "vyges-pinmux-lite",
+  "x-version": "1.0.0",
   "version": "0.1.0",
   "description": "Lightweight pin multiplexer with native TL-UL slave interface. Per-pin function select (4 functions), output enable, pull-up/pull-down control, 2-FF input synchronizer. For IO pad ring configuration.",
   "category": "infrastructure",
